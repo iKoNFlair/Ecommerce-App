@@ -1,0 +1,22 @@
+.pnf{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.pnf-img{
+    width: 30%;
+    height: 30%;
+
+}
+
+.pnf-btn{
+    background-color: rgb(0, 0, 0);
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 5px 20px;
+    border-radius: 50px;
+    transform: translateY(40px);
+}
