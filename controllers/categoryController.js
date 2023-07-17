@@ -1,49 +1,42 @@
 import categoryModel from "../models/categoryModel.js";
 import slugify from "slugify";
-
-// createCategory
 export const createCategoryController = async (req, res) => {
   try {
     const { name } = req.body;
-
     if (!name) {
       return res.status(401).send({ message: "Name is required" });
     }
-
     const existingCategory = await categoryModel.findOne({ name });
     if (existingCategory) {
       return res.status(200).send({
-        success: true,
-        message: "Category already exist",
+        success: false,
+        message: "Category Already Exisits",
       });
     }
-
     const category = await new categoryModel({
       name,
       slug: slugify(name),
     }).save();
-
     res.status(201).send({
       success: true,
-      message: "New category created",
+      message: "new category created",
       category,
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Error in category",
-      error,
+      errro,
+      message: "Errro in Category",
     });
   }
 };
 
-// updateCategory
+//update category
 export const updateCategoryController = async (req, res) => {
   try {
     const { name } = req.body;
     const { id } = req.params;
-
     const category = await categoryModel.findByIdAndUpdate(
       id,
       { name, slug: slugify(name) },
@@ -51,92 +44,71 @@ export const updateCategoryController = async (req, res) => {
     );
     res.status(200).send({
       success: true,
-      message: "Category Updated Successfully!!",
+      messsage: "Category Updated Successfully",
       category,
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Error while updating category",
       error,
+      message: "Error while updating category",
     });
   }
 };
 
-//  getCategory
-export const getCategoryController = async (req, res) => {
+// get all cat
+export const categoryControlller = async (req, res) => {
   try {
     const category = await categoryModel.find({});
     res.status(200).send({
       success: true,
-      message: "Getting all categories",
+      message: "All Categories List",
       category,
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Error in getting categories",
       error,
+      message: "Error while getting all categories",
     });
   }
 };
 
-// single Category
+// single category
 export const singleCategoryController = async (req, res) => {
   try {
-    const { slug } = req.params;
-
-    const category = await categoryModel.findOne({ slug });
-
-    if (!category) {
-      return res.status(500).send({
-        success: false,
-        message: "Category not found!!",
-      });
-    }
-
+    const category = await categoryModel.findOne({ slug: req.params.slug });
     res.status(200).send({
       success: true,
-      message: "Getting the category",
+      message: "Get SIngle Category SUccessfully",
       category,
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Error in getting the category",
       error,
+      message: "Error While getting Single Category",
     });
   }
 };
 
-// delete Category
-export const deleteCategoryController = async (req, res) => {
+//delete category
+export const deleteCategoryCOntroller = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(req.params);
-
-    const category = await categoryModel.findByIdAndDelete(id);
-
-    if (!category) {
-      return res.status(500).send({
-        success: false,
-        message: "Category not found!!",
-      });
-    }
-
+    await categoryModel.findByIdAndDelete(id);
     res.status(200).send({
       success: true,
-      message: "Category deleted",
-      category,
+      message: "Categry Deleted Successfully",
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Error in deleting the category",
+      message: "error while deleting category",
       error,
     });
   }

@@ -1,10 +1,9 @@
 import React from "react";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import Footer from "./Footer/Footer";
+import Header from "./Header/Header";
 import { Helmet } from "react-helmet";
 import { Toaster } from "react-hot-toast";
-
-const Layout = ({ children, description, keywords, author, title }) => {
+const Layout = ({ children, title, description, keywords, author }) => {
   return (
     <div>
       <Helmet>
@@ -15,18 +14,21 @@ const Layout = ({ children, description, keywords, author, title }) => {
         <title>{title}</title>
       </Helmet>
       <Header />
-      <main style={{ minHeight: "85vh" }}>{children}</main>
-      <Toaster />
+      <main style={{ minHeight: "70vh" }}>
+        <Toaster />
+
+        {children}
+      </main>
       <Footer />
     </div>
   );
 };
 
 Layout.defaultProps = {
-  title: "Ecommerce App - Shop Now",
-  description: "MERN Project",
-  keywords: "Mern, react",
-  author: "Ikonflair",
+  title: "Ecommerce app - shop now",
+  description: "mern stack project",
+  keywords: "mern,react,node,mongodb",
+  author: "Techinfoyt",
 };
 
 export default Layout;
