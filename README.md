@@ -29,7 +29,7 @@ Frontend: React.js will be used to build the user interface, providing a dynamic
 Backend: Express.js and Node.js will handle the server-side logic and API endpoints, connecting with the database.
 Database: MongoDB will be used to store product information, user data, and order details.
 
-## Getting Started:
+## Get Started:
 
 <li>Run "npm install" in the root folder</li>
 <li>cd client</li>
