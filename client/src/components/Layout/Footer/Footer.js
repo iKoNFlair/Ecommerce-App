@@ -12,7 +12,6 @@ const Footer = () => {
         <p className="text-center">
           <Link to="/about">About</Link>
           <Link to="/Contact">Contact</Link>
-          <Link to="/policy">Policy</Link>
         </p>
       </div>
     </div>
