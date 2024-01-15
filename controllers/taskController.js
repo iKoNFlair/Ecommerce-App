@@ -10,7 +10,7 @@ export const createTask = async (req, res) => {
     if (!task) return res.status(500).send({ error: "Task cannot be empty" });
 
     // Creates new document
-    // and saves both task & timestamps
+    // and saves the task
     const newTask = new taskModel({ task });
     await newTask.save();
   } catch (error) {
