@@ -13,13 +13,22 @@ const About = () => {
           />
         </div>
         <div className="col-md-4">
+          <h1>Welcome to EcomFlair</h1>
           <p className="text-justify mt-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            officiis obcaecati esse tempore unde ratione, eveniet mollitia,
-            perferendis eius temporibus dicta blanditiis doloremque explicabo
-            quasi sunt vero optio cum aperiam vel consectetur! Laborum enim
-            accusantium atque, excepturi sapiente amet! Tenetur ducimus aut
-            commodi illum quidem neque tempora nam.
+            At EcomFlair, we bring a touch of flair to your online shopping
+            experience. Established with a vision to redefine the way you shop,
+            EcomFlair is your go-to destination for [your product category]. Our
+            journey began with a simple yet powerful idea – to infuse style,
+            convenience, and affordability into every aspect of your shopping
+            adventure.
+          </p>
+          <h3>Our Flair Philosophy</h3>
+          <p>
+            EcomFlair is not just an ecommerce platform; it's a celebration of
+            individuality and style. We believe in curating a collection that
+            not only meets your needs but also reflects your unique taste. Our
+            products are carefully selected to add flair to your lifestyle,
+            making every purchase a statement of personal expression.
           </p>
         </div>
       </div>

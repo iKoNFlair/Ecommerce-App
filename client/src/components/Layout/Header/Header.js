@@ -29,7 +29,7 @@ const Header = () => {
             <span className="navbar-logo">
               <AiFillShopping />
             </span>
-            Ecommerce App
+            EcomFlair
           </Link>
           <button
             className="navbar-toggler"

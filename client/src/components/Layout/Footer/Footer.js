@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div className="bg-dark text-light footer">
       <div className="text-center">
-        <h6>All Right Reserved &copy; {year} IkonFlair</h6>
+        <h6>All Right Reserved &copy; {year} EcomFlair</h6>
         <p className="text-center">
           <Link to="/about">About</Link>
           <Link to="/Contact">Contact</Link>
