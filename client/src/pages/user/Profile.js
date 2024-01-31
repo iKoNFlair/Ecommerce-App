@@ -4,6 +4,7 @@ import Layout from "./../../components/Layout/Layout";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
 import axios from "axios";
+import styles from "./Profile.module.css";
 const Profile = () => {
   //context
   const [auth, setAuth] = useAuth();
@@ -51,69 +52,77 @@ const Profile = () => {
   };
   return (
     <Layout title={"Your Profile"}>
-      <div className="container-fluid m-3 p-3 dashboard">
+      <div className="container-fluid m-3 p-3 dashboard profile">
         <div className="row">
           <div className="col-md-3">
             <UserMenu />
           </div>
           <div className="col-md-8">
-            <div className="form-container" style={{ marginTop: "-40px" }}>
-              <form onSubmit={handleSubmit}>
-                <h4 className="title">USER PROFILE</h4>
-                <div className="mb-3">
+            <div className={styles.register}>
+              <form className={styles.form} onSubmit={handleSubmit}>
+                <h2 className={styles.registerFormText}>User Profile</h2>
+                <div className={styles.inputBox}>
                   <input
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="form-control"
                     id="exampleInputEmail1"
-                    placeholder="Enter Your Name"
+                    // placeholder="Enter Your Name"
                     autoFocus
+                    className={styles.formInput}
                   />
+                  <label className={styles.label}>Name</label>
                 </div>
-                <div className="mb-3">
+                <div className={styles.inputBox}>
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="form-control"
+                    className={styles.formInput}
                     id="exampleInputEmail1"
-                    placeholder="Enter Your Email "
+                    // placeholder="Enter Your Email "
                     disabled
                   />
+                  <label className={styles.label}>Email</label>
                 </div>
-                <div className="mb-3">
+                <div className={styles.inputBox}>
                   <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="form-control"
+                    className={styles.formInput}
                     id="exampleInputPassword1"
-                    placeholder="Enter Your Password"
+                    // placeholder="Enter Your Password"
                   />
+                  <label className={styles.label}>Password</label>
                 </div>
-                <div className="mb-3">
+                <div className={styles.inputBox}>
                   <input
                     type="text"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="form-control"
+                    className={styles.formInput}
                     id="exampleInputEmail1"
-                    placeholder="Enter Your Phone"
+                    // placeholder="Enter Your Phone"
                   />
+                  <label className={styles.label}>Phone</label>
                 </div>
-                <div className="mb-3">
+                <div className={styles.inputBox}>
                   <input
                     type="text"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
-                    className="form-control"
+                    className={styles.formInput}
                     id="exampleInputEmail1"
-                    placeholder="Enter Your Address"
+                    // placeholder="Enter Your Address"
                   />
+                  <label className={styles.label}>Address</label>
                 </div>
 
-                <button type="submit" className="btn btn-primary">
+                <button
+                  type="submit"
+                  className={`${styles.btn} btn btn-primary`}
+                >
                   UPDATE
                 </button>
               </form>
