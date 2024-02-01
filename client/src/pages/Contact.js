@@ -13,7 +13,6 @@ const Contact = () => {
           />
         </div>
         <div className="col-md-4">
-          <h1 className="bg-dark p-2 text-white text-center">CONTACT US</h1>
           <p className="text-justify mt-2">
             Connect with us on social media to stay updated on the latest
             products, promotions, and community news:
@@ -28,7 +27,7 @@ const Contact = () => {
             <BiMailSend /> : www.help@ecomflair.com
           </p>
           <p className="mt-3">
-            <BiPhoneCall /> : 011-19284678
+            <BiPhoneCall /> : 0 9888786858
           </p>
           <p className="mt-3">
             <BiSupport /> : 1800-1800-1818 (toll free)

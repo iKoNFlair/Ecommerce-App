@@ -26,9 +26,6 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand">
-            <span className="navbar-logo">
-              <AiFillShopping />
-            </span>
             EcomFlair
           </Link>
           <button
@@ -53,7 +50,7 @@ const Header = () => {
                   <span className="navbar-logo">
                     <AiFillShopping />
                   </span>{" "}
-                  Ecommerce App
+                   EcomFlair
                 </Link>
               </h5>
               <button
@@ -143,8 +140,8 @@ const Header = () => {
                 )}
                 <li className="nav-item">
                   <NavLink to="/cart" className="nav-link cart dropdown-item">
+                    Cart
                     <Badge count={cart?.length} showZero offset={[10, -5]}>
-                      <AiOutlineShoppingCart color="white" width={"60px"} />
                     </Badge>
                   </NavLink>
                 </li>

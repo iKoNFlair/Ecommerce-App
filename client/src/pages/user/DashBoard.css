@@ -1,0 +1,33 @@
+/* Dashboard.css */
+.dashboard-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .user-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  .user-name {
+    color: #007bff;
+    margin-bottom: 5px;
+  }
+  
+  .user-email {
+    color: #6c757d;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .user-address {
+    color: #495057;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  

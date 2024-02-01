@@ -1,16 +1,41 @@
 .product-details {
-  margin-top: 100px !important;
+  width: 100%;
+  padding: 10% 0;
+  margin: auto;
+  justify-content: space-between;
 }
 
 .product-details-info {
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
 }
 
-.product-details-info h6 {
+.product-details .card-img-top {
+  width: 500px !important;
+  height: 400px !important;
+}
+
+.product-details-info .name {
+  font-size: 1.5rem;
+}
+.product-details-info .price {
+  font-size: 1.7rem;
+  margin: 50px auto;
+}
+
+.product-details-info .description {
+
+  color: rgb(94, 94, 94);
   margin-bottom: 20px !important;
+}
+
+.product-details .cart-btn{
+  background-color: rgb(0, 132, 203);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 40px;
 }
 
 .similar-products .card {

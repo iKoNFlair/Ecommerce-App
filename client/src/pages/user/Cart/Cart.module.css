@@ -1,0 +1,32 @@
+.cont {
+  margin: 10px auto;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info {
+  margin-left: 23px;
+}
+
+.productImg {
+  width: 100px;
+  height: 70px;
+}
+
+.name {
+  font-size: 1.3em;
+}
+
+.price {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  text-align: right;
+  margin-right: 30px;
+}
+
+.removeBtn {
+  margin: 0px 40px;
+}

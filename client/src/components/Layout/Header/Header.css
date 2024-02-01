@@ -36,11 +36,11 @@
 .nav-link:hover,
 .dropdown:hover {
   color: #ffd700 !important;
-  transform: scale(1) !important;
 }
 
 .dropdown-menu {
   background-color: #022c43be !important;
+  z-index: 1;
 }
 
 .dropdown-item {
@@ -50,10 +50,10 @@
   font-size: 15px;
   transform: scale(0.9) !important;
   margin: 10px auto;
+  z-index: 8;
 }
 
 .dropdown-item:hover {
   background: transparent;
   color: #ffd700;
-  transform: scale(1) !important;
 }

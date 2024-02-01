@@ -23,7 +23,9 @@ const HomePage = () => {
   //get all cat
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(
+        "https://ecommerce-app-02j2.onrender.com/api/v1/category/get-category"
+      );
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -40,7 +42,9 @@ const HomePage = () => {
   const getAllProducts = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(
+        `https://ecommerce-app-02j2.onrender.com/api/v1/product/product-list/${page}`
+      );
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
@@ -52,7 +56,9 @@ const HomePage = () => {
   //getTOtal COunt
   const getTotal = async () => {
     try {
-      const { data } = await axios.get("/api/v1/product/product-count");
+      const { data } = await axios.get(
+        "https://ecommerce-app-02j2.onrender.com/api/v1/product/product-count"
+      );
       setTotal(data?.total);
     } catch (error) {
       console.log(error);
@@ -67,7 +73,9 @@ const HomePage = () => {
   const loadMore = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(
+        `https://ecommerce-app-02j2.onrender.com/api/v1/product/product-list/${page}`
+      );
       setLoading(false);
       setProducts([...products, ...data?.products]);
     } catch (error) {
@@ -97,20 +105,24 @@ const HomePage = () => {
   //get filterd product
   const filterProduct = async () => {
     try {
-      const { data } = await axios.post("/api/v1/product/product-filters", {
-        checked,
-        radio,
-      });
+      const { data } = await axios.post(
+        "https://ecommerce-app-02j2.onrender.com/api/v1/product/product-filters",
+        {
+          checked,
+          radio,
+        }
+      );
       setProducts(data?.products);
     } catch (error) {
       console.log(error);
     }
   };
   return (
-    <Layout title={"ALl Products - Best offers "}>
+    <Layout title={"All Products - Best offers "}>
       <div className="container-fluid row mt-3 home-page">
         <div className="col-md-3 filters">
-          <h4 className="text-center">Filter By Category</h4>
+          <h4>Filters</h4>
+          <p className="">Category</p>
           <div className="d-flex flex-column">
             {categories?.map((c) => (
               <Checkbox
@@ -122,7 +134,7 @@ const HomePage = () => {
             ))}
           </div>
           {/* price filter */}
-          <h4 className="text-center mt-4">Filter By Price</h4>
+          <p className=" mt-4">Price</p>
           <div className="d-flex flex-column">
             <Radio.Group onChange={(e) => setRadio(e.target.value)}>
               {Prices?.map((p) => (
@@ -134,10 +146,10 @@ const HomePage = () => {
           </div>
           <div className="d-flex flex-column">
             <button
-              className="btn btn-danger"
+              className="btn btn-primary"
               onClick={() => window.location.reload()}
             >
-              RESET FILTERS
+              Clear all
             </button>
           </div>
         </div>
@@ -145,32 +157,35 @@ const HomePage = () => {
           <h1 className="text-center">Products</h1>
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
-              <div className="card m-2" key={p._id}>
-                <img
-                  src={`/api/v1/product/product-photo/${p._id}`}
-                  className="card-img-top"
-                  alt={p.name}
-                />
+              <div
+                className="card"
+                key={p._id}
+                onClick={() => navigate(`/product/${p.slug}`)}
+              >
+                {/* https://ecommerce-app-02j2.onrender.com */}
+                <div className="product-img">
+                  <img
+                    src={`https://ecommerce-app-02j2.onrender.com/api/v1/product/product-photo/${p._id}`}
+                    className="card-img-top"
+                    alt={p.name}
+                  />
+                </div>
                 <div className="card-body">
-                  <div className="card-name-price">
+                  <div className="card-name-text">
                     <h5 className="card-title">{p.name}</h5>
-                    <h5 className="card-title card-price">
-                      {p.price.toLocaleString("en-US", {
-                        style: "currency",
-                        currency: "USD",
-                      })}
-                    </h5>
+                    <p className="card-text">
+                      {p.description.substring(0, 80)}...
+                    </p>
                   </div>
-                  <p className="card-text ">
-                    {p.description.substring(0, 60)}...
-                  </p>
-                  <div className="card-name-price">
-                    <button
-                      className="btn btn-info ms-1"
-                      onClick={() => navigate(`/product/${p.slug}`)}
-                    >
-                      More Details
-                    </button>
+                  <h5 className="card-price">
+                    {p.price.toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                    })}
+                  </h5>
+
+                  {/* <div className="card-name-price">
+                    <button className="btn btn-info ms-1">More Details</button>
                     <button
                       className="btn btn-dark ms-1"
                       onClick={() => {
@@ -184,7 +199,7 @@ const HomePage = () => {
                     >
                       ADD TO CART
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ))}
