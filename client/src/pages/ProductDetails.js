@@ -22,7 +22,7 @@ const ProductDetails = () => {
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
-        `https://ecommerce-app-02j2.onrender.com/api/v1/product/get-product/${params.slug}`
+        `/api/v1/product/get-product/${params.slug}`
       );
       setProduct(data?.product);
       getSimilarProduct(data?.product._id, data?.product.category._id);
@@ -34,7 +34,7 @@ const ProductDetails = () => {
   const getSimilarProduct = async (pid, cid) => {
     try {
       const { data } = await axios.get(
-        `https://ecommerce-app-02j2.onrender.com/api/v1/product/related-product/${pid}/${cid}`
+        `/api/v1/product/related-product/${pid}/${cid}`
       );
       setRelatedProducts(data?.products);
     } catch (error) {
@@ -45,7 +45,7 @@ const ProductDetails = () => {
     <Layout title={product.name}>
       <div className="row container product-details">
         <img
-          src={`https://ecommerce-app-02j2.onrender.com/api/v1/product/product-photo/${product._id}`}
+          src={`/api/v1/product/product-photo/${product._id}`}
           className="card-img-top"
           alt={product.name}
         />
@@ -85,7 +85,7 @@ const ProductDetails = () => {
               onClick={() => navigate(`/product/${p.slug}`)}
             >
               <img
-                src={`https://ecommerce-app-02j2.onrender.com/api/v1/product/product-photo/${p._id}`}
+                src={`/api/v1/product/product-photo/${p._id}`}
                 className="card-img-top"
                 alt={p.name}
               />
@@ -104,18 +104,18 @@ const ProductDetails = () => {
                 </p>
                 <div className="card-name-price">
                   <button
-                  className="btn btn-dark ms-1"
-                  onClick={() => {
-                    setCart([...cart, p]);
-                    localStorage.setItem(
-                      "cart",
-                      JSON.stringify([...cart, p])
-                    );
-                    toast.success("Item Added to cart");
-                  }}
-                >
-                  ADD TO CART
-                </button>
+                    className="btn btn-dark ms-1"
+                    onClick={() => {
+                      setCart([...cart, p]);
+                      localStorage.setItem(
+                        "cart",
+                        JSON.stringify([...cart, p])
+                      );
+                      toast.success("Item Added to cart");
+                    }}
+                  >
+                    ADD TO CART
+                  </button>
                 </div>
               </div>
             </div>
