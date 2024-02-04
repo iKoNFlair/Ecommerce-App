@@ -1,6 +1,6 @@
 # MERN Ecommerce App
 
-#### Welcome to our MERN Stack E-commerce Web App! This is an open-source project built with the MERN (MongoDB, Express.js, React.js, and Node.js) stack, designed to provide a seamless and user-friendly online shopping experience.
+#### Welcome to my MERN Stack E-commerce Web App!
 
 ## Features:
 
