@@ -1,6 +1,4 @@
-# MERN Ecommerce App
-
-#### Welcome to my MERN Stack E-commerce Web App!
+# EcomFlair - An Ecommerse App
 
 ## Features:
 
