@@ -1,4 +1,4 @@
-# EcomFlair - An Ecommerse App
+# EcomFlair - An Ecommerce App
 
 ## Features:
 
