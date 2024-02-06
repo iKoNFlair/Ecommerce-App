@@ -10,7 +10,6 @@ import styles from "./Cart.module.css";
 const { Meta } = Card;
 const Item = ({
   name,
-  description,
   price,
   id,
   productImage,

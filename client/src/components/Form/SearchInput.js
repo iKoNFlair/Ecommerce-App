@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSearch } from "../../context/search";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { IoIosSearch } from "react-icons/io";
+
+import "./SearchInput.css";
 const SearchInput = () => {
   const [values, setValues] = useSearch();
+  const [value, setValue] = useState("");
   const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+    setValues({ ...values, keyword: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,6 +22,7 @@ const SearchInput = () => {
         `/api/v1/product/search/${values.keyword}`
       );
       setValues({ ...values, results: data });
+      setValue("");
       navigate("/search");
     } catch (error) {
       console.log(error);
@@ -26,15 +36,15 @@ const SearchInput = () => {
         onSubmit={handleSubmit}
       >
         <input
-          className="form-control me-2"
+          className="form-control me-2 search-bar"
           type="search"
           placeholder="Search"
           aria-label="Search"
-          value={values.keyword}
-          onChange={(e) => setValues({ ...values, keyword: e.target.value })}
+          value={value}
+          onChange={handleChange}
         />
-        <button className="btn btn-outline-success" type="submit">
-          Search
+        <button className="search-btn" type="submit">
+          <IoIosSearch />
         </button>
       </form>
     </div>

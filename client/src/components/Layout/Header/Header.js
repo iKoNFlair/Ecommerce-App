@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 import { Badge } from "antd";
 import { useCart } from "../../../context/cart";
 import useCategory from "../../../hooks/useCategory";
+import SearchInput from "../../Form/SearchInput";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
@@ -50,7 +51,7 @@ const Header = () => {
                   <span className="navbar-logo">
                     <AiFillShopping />
                   </span>{" "}
-                   EcomFlair
+                  EcomFlair
                 </Link>
               </h5>
               <button
@@ -61,14 +62,16 @@ const Header = () => {
               />
             </div>
             <div className="offcanvas-body">
-              <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <ul className="navbar-nav justify-content-end align-items-center flex-grow-1 pe-3">
+                <SearchInput className="search-bar" />
                 <li className="nav-item">
-                  <NavLink to="/" className="nav-link">
+                  <NavLink to="/" activeClassName="active" className="nav-link">
                     Home
                   </NavLink>
                 </li>
                 <li className="nav-item dropdown">
                   <NavLink
+                    activeClassName="active"
                     className="nav-link dropdown-toggle"
                     to={"/categories"}
                     data-bs-toggle="dropdown"
@@ -82,7 +85,7 @@ const Header = () => {
                       </Link>
                     </li>
                     {categories?.map((c) => (
-                      <li>
+                      <li key={c._id}>
                         <Link
                           className="dropdown-item"
                           to={`/category/${c.slug}`}
@@ -96,7 +99,11 @@ const Header = () => {
                 {!auth.user ? (
                   <>
                     <li className="nav-item">
-                      <NavLink to="/login" className="nav-link">
+                      <NavLink
+                        to="/login"
+                        activeClassName="active"
+                        className="nav-link"
+                      >
                         Login
                       </NavLink>
                     </li>
@@ -105,8 +112,9 @@ const Header = () => {
                   <>
                     <li className="nav-item dropdown ">
                       <NavLink
-                        className="nav-link dropdown-toggle "
-                        href="#"
+                        activeClassName="active"
+                        className="nav-link dropdown-toggle"
+                        to={"/dashboard/admin"}
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
@@ -139,10 +147,17 @@ const Header = () => {
                   </>
                 )}
                 <li className="nav-item">
-                  <NavLink to="/cart" className="nav-link cart dropdown-item">
+                  <NavLink
+                    to="/cart"
+                    activeClassName="active"
+                    className="nav-link cart dropdown-item"
+                  >
                     Cart
-                    <Badge count={cart?.length} showZero offset={[10, -5]}>
-                    </Badge>
+                    <Badge
+                      count={cart?.length}
+                      showZero
+                      offset={[10, -5]}
+                    ></Badge>
                   </NavLink>
                 </li>
               </ul>
