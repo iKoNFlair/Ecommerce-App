@@ -22,7 +22,7 @@ const Search = () => {
                   {/*  */}
                   <div className="product-img">
                     <img
-                      src={`/api/v1/product/product-photo/${p._id}`}
+                      src={`https://ecommerce-app-02j2.onrender.com/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top"
                       alt={p.name}
                     />

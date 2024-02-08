@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../../context/auth";
 import { Outlet } from "react-router-dom";
 import axios from "axios";
-import Spinner from "../Spinner";
+import LoaderComponent from "../Loader/Loader";
 
 export default function PrivateRoute() {
   const [ok, setOk] = useState(false);
@@ -10,7 +10,9 @@ export default function PrivateRoute() {
 
   useEffect(() => {
     const authCheck = async () => {
-      const res = await axios.get("/api/v1/auth/user-auth");
+      const res = await axios.get(
+        "https://ecommerce-app-02j2.onrender.com/api/v1/auth/user-auth"
+      );
       if (res.data.ok) {
         setOk(true);
       } else {
@@ -20,5 +22,5 @@ export default function PrivateRoute() {
     if (auth?.token) authCheck();
   }, [auth?.token]);
 
-  return ok ? <Outlet /> : <Spinner />;
+  return ok ? <Outlet /> : <LoaderComponent />;
 }

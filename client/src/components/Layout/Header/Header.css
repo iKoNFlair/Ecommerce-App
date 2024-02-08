@@ -4,15 +4,23 @@
   font-size: 17px;
   line-height: 26px;
   text-transform: uppercase;
-  /* box-shadow: 0 8px 6px -6px #ffd90031; */
   --webkit-box-shadow: 0;
-  height: 80px;
   color: #ffd700 !important;
 }
 
+.navbar-toggler {
+  background-color: rgba(232, 232, 232, 0.484) !important;
+  margin: 5px 2px !important;
+}
+
+.navbar-collapse {
+  background-color: #022c43 !important;
+  padding: 20px 10px;
+}
+
 .navbar-toggler-icon {
-  width: 20px;
-  height: 20px;
+  /* background-color: #ffffff !important; */
+  /* color: white !important; */
 }
 
 .navbar-nav .active {
@@ -23,7 +31,7 @@
 
 .navbar-brand {
   color: #ffd700 !important;
-  margin: auto 20px;
+  margin: auto 10px;
 }
 
 .navbar-logo {
@@ -45,6 +53,11 @@
 
 .nav-link.active {
   text-decoration: none !important;
+}
+
+.dropdown {
+  padding: 0;
+  margin: 0;
 }
 
 .nav-link:hover,
@@ -70,4 +83,8 @@
 .dropdown-item:hover {
   background: transparent;
   color: #ffd700;
+}
+
+.cart {
+  margin: 10px;
 }

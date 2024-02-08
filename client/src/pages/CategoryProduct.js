@@ -18,7 +18,7 @@ const CategoryProduct = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `/api/v1/product/product-category/${params.slug}`
+        `https://ecommerce-app-02j2.onrender.com/api/v1/product/product-category/${params.slug}`
       );
       setLoading(false);
       setProducts(data?.products);
@@ -39,7 +39,7 @@ const CategoryProduct = () => {
           <div className="row">
             <div className="col-md-12">
               <div className="d-flex flex-wrap">
-                {products?.map((p) => (
+                {products?.map((p, i) => (
                   <div
                     className="card"
                     key={p._id}
@@ -48,7 +48,7 @@ const CategoryProduct = () => {
                     {/*  */}
                     <div className="product-img">
                       <img
-                        src={`/api/v1/product/product-photo/${p._id}`}
+                        src={`https://ecommerce-app-02j2.onrender.com/api/v1/product/product-photo/${p._id}`}
                         className="card-img-top"
                         alt={p.name}
                       />

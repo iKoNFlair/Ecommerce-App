@@ -25,7 +25,7 @@ const ProductDetails = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `/api/v1/product/get-product/${params.slug}`
+        `https://ecommerce-app-02j2.onrender.com/api/v1/product/get-product/${params.slug}`
       );
       setLoading(false);
       setProduct(data?.product);
@@ -38,7 +38,7 @@ const ProductDetails = () => {
   const getSimilarProduct = async (pid, cid) => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/related-product/${pid}/${cid}`
+        `https://ecommerce-app-02j2.onrender.com/api/v1/product/related-product/${pid}/${cid}`
       );
       setRelatedProducts(data?.products);
     } catch (error) {
@@ -53,7 +53,7 @@ const ProductDetails = () => {
         <>
           <div className="row container product-details">
             <img
-              src={`/api/v1/product/product-photo/${product._id}`}
+              src={`https://ecommerce-app-02j2.onrender.com/api/v1/product/product-photo/${product._id}`}
               className="card-img-top"
               alt={product.name}
             />
@@ -98,7 +98,7 @@ const ProductDetails = () => {
                   {/*  */}
                   <div className="product-img">
                     <img
-                      src={`/api/v1/product/product-photo/${p._id}`}
+                      src={`https://ecommerce-app-02j2.onrender.com/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top"
                       alt={p.name}
                     />

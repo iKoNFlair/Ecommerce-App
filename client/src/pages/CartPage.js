@@ -49,7 +49,9 @@ const CartPage = () => {
   //get payment gateway token
   const getToken = async () => {
     try {
-      const { data } = await axios.get("/api/v1/product/braintree/token");
+      const { data } = await axios.get(
+        "https://ecommerce-app-02j2.onrender.com/api/v1/product/braintree/token"
+      );
       setClientToken(data?.clientToken);
     } catch (error) {
       console.log(error);
@@ -64,10 +66,13 @@ const CartPage = () => {
     try {
       setLoading(true);
       const { nonce } = await instance.requestPaymentMethod();
-      const { data } = await axios.post("/api/v1/product/braintree/payment", {
-        nonce,
-        cart,
-      });
+      const { data } = await axios.post(
+        "https://ecommerce-app-02j2.onrender.com/api/v1/product/braintree/payment",
+        {
+          nonce,
+          cart,
+        }
+      );
       setLoading(false);
       localStorage.removeItem("cart");
       setCart([]);
@@ -101,12 +106,13 @@ const CartPage = () => {
           <div className="container ">
             <div className="row ">
               <div className="col-md-7 p-0">
-                {cart?.map((p) => (
+                {cart?.map((p, i) => (
                   <Item
+                    key={i}
                     id={p._id}
                     name={p.name}
                     description={p.description}
-                    productImage={`/api/v1/product/product-photo/${p._id}`}
+                    productImage={`https://ecommerce-app-02j2.onrender.com/api/v1/product/product-photo/${p._id}`}
                     price={p.price}
                     remove={removeCartItem}
                   />
